@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+	
+	input{
+	background:black;
+	color:yellow;
+	font-size:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:19px;
+	padding-right:19px;
+	margin:6px;
+	}
+
+
+</style>
+<script>
+
+ function saveData(){
+        localStorage.saveServer
+        }
+
+function inputNum(num, char) {
+	if(num.value == null || num.value == "0"){
+		num.value = char
+	}
+	else{
+		num.value += char
+	}
+}
+
+
+function calculate(form) {
+	form.show.value = eval(form.show.value)
+}
+
+
+function check(input) {
+	for (var i = 0; i < input.length; i++) {
+		var x = input.substring(i, i+1)
+
+		if (x < "0" || x > "9") {
+			if (x != "/" && x != "*" && x != "+" && x != "-") {
+				return false
+				}
+			}
+		}
+		return true
+}
+</script>
+
+</head>
+
+<body>
+<center/>
+<form style="width:260px; border:2px solid #000;background-color: yellow;">
+
+<table >
+   <TR>
+<input style="background:#222; color:yellow;" name="show"  value="0" size="23"> <br>        
+
+ <input type="button" value="+" ONCLICK="inputNum(this.form.show, '+')">
+<input type="button" value="7" ONCLICK="inputNum(this.form.show, 7)">
+<input type="button" value="8" ONCLICK="inputNum(this.form.show, 8)">
+<input type="button" value="9" ONCLICK="inputNum(this.form.show, 9)">
+<br>
+
+<input type="button" value="-" ONCLICK="inputNum(this.form.show, '-')">
+<input type="button" value="4" ONCLICK="inputNum(this.form.show, 4)">
+<input type="button" value="5" ONCLICK="inputNum(this.form.show, 5)">
+<input type="button" value="6" ONCLICK="inputNum(this.form.show, 6)">
+  <br>
+
+ <input type="button" value="*" ONCLICK="inputNum(this.form.show, '*')">
+<input type="button" value="1" ONCLICK="inputNum(this.form.show, 1)">
+<input type="button" value="2" ONCLICK="inputNum(this.form.show, 2)">
+<input type="button" value="3" ONCLICK="inputNum(this.form.show, 3)">
+ <br>
+                                  
+
+
+<input type="button" value="/" ONCLICK="inputNum(this.form.show, '/')">
+<input type="button" value="  " >
+<input type="button" value="0" ONCLICK="inputNum(this.form.show, 0)">
+<input type="button" value="  " >
+
+
+                     
+<input style="width:240px;" type="button" value="equals" name="equals" onclick="if (check(this.form.show.value)) { calculate(this.form) }"> <br>
+
+
+</TR>
+</table>
+</form>
+</body>
+</html>
